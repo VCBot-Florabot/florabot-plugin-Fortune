@@ -46,12 +46,12 @@ def event(data: dict):  # 事件函数,FloraBot每收到一个事件都会调用
             response = requests.get(fortune_url)
             data_dict = response.json()
             fortune_data = data_dict["data"]
-            send_compatible(msg=f"[CQ:at,qq={uid}]\n今日运势：\n{fortune_data["fortuneSummary"]}\n    {fortune_data["luckyStar"]}\n运势：{fortune_data["signText"]}\n---------------------\n建议：{fortune_data["unSignText"]}", uid=uid, gid=gid, mid=mid)
+            send_compatible(msg=f"[CQ:at,qq={uid}]\n今日运势：\n{fortune_data['fortuneSummary']}\n    {fortune_data['luckyStar']}\n运势：{fortune_data['signText']}\n---------------------\n建议：{fortune_data['unSignText']}", uid=uid, gid=gid, mid=mid)
         if msg == "#一言":
             yy_url = f"https://api.fanlisky.cn/niuren/getSen"
             response_yy = requests.get(yy_url)
             yy_dict = response_yy.json()
-            send_compatible(msg=f"[CQ:at,qq={uid}]\n{yy_dict["data"]}", uid=uid, gid=gid, mid=mid)
+            send_compatible(msg=f"[CQ:at,qq={uid}]\n{yy_dict['data']}", uid=uid, gid=gid, mid=mid)
         if msg == "#二次元图片":
             ecy_url = f"https://www.loliapi.com/acg/?type=url"
             response_ecy = requests.get(ecy_url)
@@ -66,7 +66,7 @@ def event(data: dict):  # 事件函数,FloraBot每收到一个事件都会调用
             crazy_thursday_url = f"https://api.shadiao.pro/kfc"
             response_crazy_thursday = requests.get(crazy_thursday_url)
             data_dict = response_crazy_thursday.json()
-            send_compatible(msg=f"[CQ:at,qq={uid}]\n{data_dict["data"]["text"]}", uid=uid, gid=gid, mid=mid)
+            send_compatible(msg=f"[CQ:at,qq={uid}]\n{data_dict['data']['text']}", uid=uid, gid=gid, mid=mid)
         if msg == "#.帮助":
             send_compatible(msg=f"[CQ:at,qq={uid}]\n{plugin_name}{plugin_viasion} 插件\n----------------\n命令：\n#今日运势 查看今日的运势（仅娱乐）\n#一言 获取一言\n#二次元图片 返回随机二次元图片\n#二次元头像 返回随机的二次元头像\n#疯狂星期四 获取疯狂星期四文案\n----------------", uid=uid, gid=gid, mid=mid)
 
